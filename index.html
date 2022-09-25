@@ -1,14 +1,190 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css"/>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
-<body>
-    <h1>Hello Git!</h1>
-    <script src="script.js"></script>
-</body>
+  <body>
+    <div class="container">
+      <div class="weatherApp">
+        <form class="searchForm">
+            <div class="row">
+              <div class="col-6">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  autofocus="on"
+                  autocomplete="off"
+                  id="city-input"
+                  class="form-control shadow-sm"
+                />
+              </div>
+              <div class="col-3">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn btn-primary shadow-sm"
+                />
+              </div>
+              
+
+              <div class="col-3">
+                <button
+                  class="btn btn-success w-100"
+                  id="current-location-button">
+                  Current
+                </button>
+              </div>
+
+
+
+            </div>
+        </form>
+        <div class="row listCity">
+          <div class="col-3" id="newyork">New York</div>
+          <div class="col-3" id="london">London</div>
+          <div class="col-3" id="beijing">Beijing</div>
+          <div class="col-3" id="sydney">Sydney</div>
+        </div>
+        <h1>
+            Kyiv, Ukraine
+        </h1>
+        <ul>
+            <li id="current-date">
+              Wednesday 22:00
+            </li>
+            <li id="description">
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-6">
+              <div class="clearfix">
+                <img
+                  src="images/partly_cloudy.png"
+                  alt="Cloudy icon"
+                  class="weather-icon float-left"
+                />
+                <div class="float-left">
+                  <span class="temperature" id="temperature">25</span
+                  ><span class="units">
+                    <a href="#" id="c-link">°C</a> |
+                    <a href="#" id="f-link">°F</a>         
+                 </span>
+                 </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+              <li>
+                  Humidity:<span id="humidity"></span>%
+                </li>
+                <li>
+                  Wind: <span id="wind"></span> km/h
+                </li>
+              </ul>
+            </div>
+          </div> 
+      <div class="hourlyForecast" id="hourly-forecast">
+        <div class="row">
+          <div class="col-2">
+            21:00
+            <strong>12°</strong>
+          </div>
+          <div class="col-2">
+            22:00
+            <strong>12°</strong>
+          </div>
+          <div class="col-2">
+            23:00
+            <strong>12°</strong>
+          </div>
+          <div class="col-2">
+            24:00
+            <strong>12°</strong>
+          </div>
+          <div class="col-2">
+            1:00
+            <strong>12°</strong>
+          </div>
+          <div class="col-2">
+            2:00
+            <strong>14°</strong>
+          </div>
+        </div>
+      </div>
+      <div class="weatherForecast" id="forecast">
+        <div class="row">
+          <div class="col-2">
+            <div class="weather-forecast-date">Mon</div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" "=""
+            class="icons">
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max">18°</span> <br />
+              <span class="weather-forecast-temperature-min">12°</span>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="weather-forecast-date">Tue</div>
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" "=""
+            class="icons">
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max">21°</span> <br />
+              <span class="weather-forecast-temperature-min">13°</span>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="weather-forecast-date">Wed</div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" "=""
+            class="icons">
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max">15°</span> <br />
+              <span class="weather-forecast-temperature-min">12°</span>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="weather-forecast-date">Thu</div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" "=""
+            class="icons">
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max">17°</span> <br />
+              <span class="weather-forecast-temperature-min">13°</span>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="weather-forecast-date">Fri</div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" "=""
+            class="icons">
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max">15°</span> <br />
+              <span class="weather-forecast-temperature-min">14°</span>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="weather-forecast-date">Sat</div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" "=""
+            class="icons">
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max">15°</span> <br />
+              <span class="weather-forecast-temperature-min">13°</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
 </html>
