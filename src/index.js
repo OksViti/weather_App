@@ -25,7 +25,7 @@ function currentTime() {
   function putTemperatureF(event) {
     event.preventDefault();
     let temperature = document.querySelector("#temperature");
-    temperature.innerHTML = Math.round((25 * 9) / 5 + 32);
+    temperature.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   }
   
   let changeTemperatureF = document.querySelector("#f-link");
@@ -78,6 +78,8 @@ function currentTime() {
     navigator.geolocation.getCurrentPosition(searchLocation);
   }
   
+  let celsiusTemperature = null;
+
   let searchForm = document.querySelector(".searchForm");
   searchForm.addEventListener("submit", handleSubmit);
   
