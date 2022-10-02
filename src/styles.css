@@ -113,10 +113,10 @@ body {
   
     margin-bottom: 20px;
   }
-  .clearfix.active{
+  .weather-temperature .active{
     color: black;
     cursor: default;
   }
-  .clearfix.active:hover{
+  .weather-temperature .active:hover{
     text-decoration: none;
   }
