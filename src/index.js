@@ -34,7 +34,7 @@ function currentTime() {
   function putTemperatureC(event) {
     event.preventDefault();
     let temperature = document.querySelector("#temperature");
-    temperature.innerHTML = Math.round(25);
+    temperature.innerHTML = Math.round(celsiusTemperature);
   }
   
   let changeTemperatureC = document.querySelector("#c-link");
@@ -44,11 +44,10 @@ function currentTime() {
     document.querySelector("h1").innerHTML =
       response.data.name + ", " + response.data.sys.country;
 
-      celsiusTemperature = response.data.main.temp;
+    celsiusTemperature = response.data.main.temp;
 
     document.querySelector("#temperature").innerHTML = Math.round(
-      response.data.main.temp
-    );
+      celsiusTemperature);
   
     document.querySelector("#humidity").innerHTML = response.data.main.humidity;
     document.querySelector("#wind").innerHTML = Math.round(
