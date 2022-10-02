@@ -24,6 +24,9 @@ function currentTime() {
   
   function putTemperatureF(event) {
     event.preventDefault();
+    //remove the active class the celsius link
+    changeTemperatureC.classList.remove("active");
+    changeTemperatureF.classList.add("active");
     let temperature = document.querySelector("#temperature");
     temperature.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
   }
@@ -33,6 +36,9 @@ function currentTime() {
   
   function putTemperatureC(event) {
     event.preventDefault();
+    //remove the active class the celsius link
+    changeTemperatureC.classList.add("active");
+    changeTemperatureF.classList.removw("active");
     let temperature = document.querySelector("#temperature");
     temperature.innerHTML = Math.round(celsiusTemperature);
   }
