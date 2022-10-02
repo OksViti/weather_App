@@ -43,6 +43,9 @@ function currentTime() {
   function displayWeatherCondition(response) {
     document.querySelector("h1").innerHTML =
       response.data.name + ", " + response.data.sys.country;
+
+      celsiusTemperature = response.data.main.temp;
+
     document.querySelector("#temperature").innerHTML = Math.round(
       response.data.main.temp
     );
