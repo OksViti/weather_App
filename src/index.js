@@ -39,7 +39,7 @@ function currentTime() {
     let temperature = document.querySelector("#temperature");
     //remove the active class the celsius link
     changeTemperatureC.classList.add("active");
-    changeTemperatureF.classList.removw("active");
+    changeTemperatureF.classList.remove("active");
     temperature.innerHTML = Math.round(celsiusTemperature);
   }
   
