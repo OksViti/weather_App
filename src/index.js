@@ -48,7 +48,7 @@ function currentTime() {
   
   function displayWeatherCondition(response) {
     let iconElement = document.querySelector("#icon");
-    iconElement.setAttribute ("src"+`http://openweathermap.org/img/wn/04d@2x.png`);
+    iconElement.setAttribute ("src",`http://openweathermap.org/img/wn/04d@2x.png`);
 
     document.querySelector("h1").innerHTML =
       response.data.name + ", " + response.data.sys.country;
