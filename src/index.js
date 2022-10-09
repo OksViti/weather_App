@@ -28,10 +28,10 @@ function currentTime() {
   };
 
   function formatHour(timestamp) {
-    let date = new Date(timestamp);
+    let date = new Date(timestamp*1000);
     let hour = date.getHours();
     let min = date.getMinutes();
-    timeHour = hour+" : "+min;
+    timeHour = hour+":"+min;
     return timeHour;
   };
 
@@ -66,7 +66,7 @@ function currentTime() {
     if (index < 6){
     forecastHourHTML = forecastHourHTML+`
       <div class="col-2">
-        05:00
+        ${formatHour(forecastHour.dt)}
         <strong>${Math.round(forecastHour.temp.min)}°</strong>
       </div>
     `;
